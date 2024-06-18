@@ -8,13 +8,13 @@ export class Categoria extends Model<Categoria> {
   @Column({
     type: DataType.INTEGER,
     primaryKey: true,
-    autoIncrement: true,
+    autoIncrement: true,  // Este campo debe ser auto-incremental
   })
-  id_categoria?: number;  // Update to match the database column name
+  id_categoria?: number;
 
   @Column({
     type: DataType.STRING,
     allowNull: false,
   })
-  nombre_categoria? : string;  // Update to match the database column name
+  nombre_categoria?: string;
 }

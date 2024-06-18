@@ -10,19 +10,31 @@ export class ComidasService {
   ) {}
 
   async findAll(): Promise<Comida[]> {
-    return this.comidaModel.findAll();
+    try {
+      return await this.comidaModel.findAll();
+    } catch (error) {
+      throw new Error(`Error fetching all comidas: ${(error as Error).message}`);
+    }
   }
 
   async findOne(id: number): Promise<Comida> {
-    const comida = await this.comidaModel.findByPk(id);
-    if (!comida) {
-      throw new NotFoundException('Comida not found');
+    try {
+      const comida = await this.comidaModel.findByPk(id);
+      if (!comida) {
+        throw new NotFoundException('Comida not found');
+      }
+      return comida;
+    } catch (error) {
+      throw new Error(`Error fetching comida: ${(error as Error).message}`);
     }
-    return comida;
   }
 
   async findByCategoria(id_categoria: number): Promise<Comida[]> {
-    return this.comidaModel.findAll({ where: { id_categoria } });
+    try {
+      return await this.comidaModel.findAll({ where: { id_categoria } });
+    } catch (error) {
+      throw new Error(`Error fetching comidas by category: ${(error as Error).message}`);
+    }
   }
 
   async create(comida: Comida): Promise<Comida> {

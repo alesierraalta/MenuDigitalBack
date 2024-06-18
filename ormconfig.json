@@ -1,0 +1,10 @@
+{
+    "type": "postgres",
+    "url": "postgres://default:y7AnpXMtWq8w@ep-misty-dust-a4d33qy0-pooler.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require",
+    "entities": ["dist/**/*.entity{.ts,.js}"],
+    "synchronize": true,
+    "ssl": {
+      "rejectUnauthorized": false
+    }
+  }
+  

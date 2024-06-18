@@ -8,7 +8,7 @@ import { Categoria } from '../categorias/categoria.entity';
 export class Comida extends Model<Comida> {
   @Column({
     type: DataType.INTEGER,
-    autoIncrement: true,
+    autoIncrement: true,  // Este campo debe ser auto-incremental
     primaryKey: true,
   })
   id_comida?: number;
