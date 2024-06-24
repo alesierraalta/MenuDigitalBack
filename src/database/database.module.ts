@@ -15,14 +15,10 @@ import { Categoria } from '../categorias/categoria.entity';
       autoLoadModels: true,
       synchronize: true,
       dialectOptions: {
-        ssl: {
+        ssl: process.env.NODE_ENV === 'production' ? {
           require: true,
           rejectUnauthorized: false,
-        },
-        options: {
-          encrypt: true,
-          enableArithAbort: true,
-        },
+        } : false,
       },
       models: [Comida, Categoria],
     }),
