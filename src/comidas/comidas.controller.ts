@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Put, Delete, Body, Param, NotFoundException } from '@nestjs/common';
+import { Controller, Get, Post, Put, Delete, Body, Param, Query, NotFoundException } from '@nestjs/common';
 import { ComidasService } from './comidas.service';
 import { Comida } from './comida.entity';
 
@@ -23,6 +23,11 @@ export class ComidasController {
   @Get('categoria/:id_categoria')
   findByCategoria(@Param('id_categoria') id_categoria: number): Promise<Comida[]> {
     return this.comidasService.findByCategoria(id_categoria);
+  }
+
+  @Get('buscar')
+  findByName(@Query('name') name: string): Promise<Comida[]> {
+    return this.comidasService.findByName(name);
   }
 
   @Post()

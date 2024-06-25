@@ -1,6 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { Comida } from './comida.entity';
+import { Op } from 'sequelize';
 
 @Injectable()
 export class ComidasService {
@@ -34,6 +35,20 @@ export class ComidasService {
       return await this.comidaModel.findAll({ where: { id_categoria } });
     } catch (error) {
       throw new Error(`Error fetching comidas by category: ${(error as Error).message}`);
+    }
+  }
+
+  async findByName(name: string): Promise<Comida[]> {
+    try {
+      return await this.comidaModel.findAll({
+        where: {
+          nombre_comida: {
+            [Op.iLike]: `%${name}%`,
+          },
+        },
+      });
+    } catch (error) {
+      throw new Error(`Error fetching comidas by name: ${(error as Error).message}`);
     }
   }
 
