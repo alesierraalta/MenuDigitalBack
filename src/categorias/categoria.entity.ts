@@ -17,4 +17,10 @@ export class Categoria extends Model<Categoria> {
     allowNull: false,
   })
   nombre_categoria?: string;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: true,
+  })
+  imagen_url?: string; // Añadir este campo
 }

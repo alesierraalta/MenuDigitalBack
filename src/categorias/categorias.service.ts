@@ -1,6 +1,8 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { Categoria } from './categoria.entity';
+import { CreateCategoriaDto } from './dto/create-categoria.dto';
+import { UpdateCategoriaDto } from './dto/update-categoria.dto';
 
 @Injectable()
 export class CategoriasService {
@@ -29,17 +31,17 @@ export class CategoriasService {
     }
   }
 
-  async create(categoria: Categoria): Promise<Categoria> {
+  async create(createCategoriaDto: CreateCategoriaDto): Promise<Categoria> {
     try {
-      return await this.categoriaModel.create(categoria);
+      return await this.categoriaModel.create(createCategoriaDto as any);
     } catch (error) {
       throw new Error(`Error creating category: ${(error as Error).message}`);
     }
   }
 
-  async update(id: number, categoria: Categoria): Promise<[number, Categoria[]]> {
+  async update(id: number, updateCategoriaDto: UpdateCategoriaDto): Promise<[number, Categoria[]]> {
     try {
-      return await this.categoriaModel.update(categoria, {
+      return await this.categoriaModel.update(updateCategoriaDto, {
         where: { id_categoria: id },
         returning: true,
       });

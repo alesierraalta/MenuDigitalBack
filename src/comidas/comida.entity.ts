@@ -37,4 +37,16 @@ export class Comida extends Model<Comida> {
     allowNull: false,
   })
   precio_comida?: number;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: true,
+  })
+  imagen_url?: string; // Añadir este campo
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: true,
+  })
+  video_url?: string; // Añadir este campo
 }

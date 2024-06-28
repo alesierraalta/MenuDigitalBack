@@ -1,5 +1,7 @@
 import { Controller, Get, Post, Put, Delete, Body, Param, Query, NotFoundException } from '@nestjs/common';
 import { ComidasService } from './comidas.service';
+import { CreateComidaDto } from './dto/create-comida.dto';
+import { UpdateComidaDto } from './dto/update-comida.dto';
 import { Comida } from './comida.entity';
 
 @Controller('api/comidas')
@@ -31,13 +33,13 @@ export class ComidasController {
   }
 
   @Post()
-  create(@Body() comida: Comida): Promise<Comida> {
-    return this.comidasService.create(comida);
+  create(@Body() createComidaDto: CreateComidaDto): Promise<Comida> {
+    return this.comidasService.create(createComidaDto);
   }
 
   @Put(':id')
-  async update(@Param('id') id: number, @Body() comida: Comida): Promise<Comida> {
-    const [affectedCount, [updatedComida]] = await this.comidasService.update(id, comida);
+  async update(@Param('id') id: number, @Body() updateComidaDto: UpdateComidaDto): Promise<Comida> {
+    const [affectedCount, [updatedComida]] = await this.comidasService.update(id, updateComidaDto);
     if (affectedCount === 0) {
       throw new NotFoundException('Comida not found');
     }
