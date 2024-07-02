@@ -1,0 +1,13 @@
+name: BackNest
+runtime: nodejs18
+source:
+  git:
+    url: https://github.com/alesierraalta/MenuDigitalBack
+    branch: main
+run:
+  cmd: node dist/main.js
+build:
+  cmd: npm install && npm run build
+env:
+  - name: NODE_ENV
+    value: production
