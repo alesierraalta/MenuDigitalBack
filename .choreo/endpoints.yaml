@@ -10,7 +10,7 @@ endpoints:
     port: 3001
     type: REST
     networkVisibility: Public
-    context: /api/categorias/:id
+    context: /api/categorias/{id}
     schemaFilePath: ./swagger/categorias.yaml
   - name: CreateCategoriaService
     port: 3001
@@ -22,13 +22,13 @@ endpoints:
     port: 3001
     type: REST
     networkVisibility: Public
-    context: /api/categorias/:id
+    context: /api/categorias/{id}
     schemaFilePath: ./swagger/categorias.yaml
   - name: DeleteCategoriaService
     port: 3001
     type: REST
     networkVisibility: Public
-    context: /api/categorias/:id
+    context: /api/categorias/{id}
     schemaFilePath: ./swagger/categorias.yaml
   - name: ComidasService
     port: 3001
@@ -40,13 +40,13 @@ endpoints:
     port: 3001
     type: REST
     networkVisibility: Public
-    context: /api/comidas/:id
+    context: /api/comidas/{id}
     schemaFilePath: ./swagger/comidas.yaml
   - name: ComidasByCategoriaService
     port: 3001
     type: REST
     networkVisibility: Public
-    context: /api/comidas/categoria/:id_categoria
+    context: /api/comidas/categoria/{id_categoria}
     schemaFilePath: ./swagger/comidas.yaml
   - name: ComidasSearchService
     port: 3001
@@ -64,11 +64,11 @@ endpoints:
     port: 3001
     type: REST
     networkVisibility: Public
-    context: /api/comidas/:id
+    context: /api/comidas/{id}
     schemaFilePath: ./swagger/comidas.yaml
   - name: DeleteComidaService
     port: 3001
     type: REST
     networkVisibility: Public
-    context: /api/comidas/:id
+    context: /api/comidas/{id}
     schemaFilePath: ./swagger/comidas.yaml
