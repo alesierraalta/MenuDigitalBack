@@ -26,7 +26,6 @@
     "@nestjs/mapped-types": "^2.0.5",
     "@nestjs/passport": "^10.0.3",
     "@nestjs/platform-express": "^10.3.9",
-    "@nestjs/sequelize": "^10.0.1",
     "@types/pg": "^8.11.6",
     "are-we-there-yet": "^4.0.2",
     "bcrypt": "^5.1.1",
