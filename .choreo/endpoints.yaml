@@ -1,7 +1,7 @@
 version: 0.1
 endpoints:
   - name: RESTApi
-    port: 8000
+    port: 3001
     type: REST
     networkVisibility: Public
     context: /
