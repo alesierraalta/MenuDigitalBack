@@ -1,50 +1,62 @@
-version: 1
+version: 0.1
 endpoints:
-  - path: /api/categorias
-    method: GET
+  - name: GetCategorias
     port: 3001
-    protocol: HTTP
-  - path: /api/categorias/:id
-    method: GET
+    type: REST
+    networkVisibility: Public
+    context: /api/categorias
+  - name: GetCategoriaById
     port: 3001
-    protocol: HTTP
-  - path: /api/categorias
-    method: POST
+    type: REST
+    networkVisibility: Public
+    context: /api/categorias/{id}
+  - name: CreateCategoria
     port: 3001
-    protocol: HTTP
-  - path: /api/categorias/:id
-    method: PUT
+    type: REST
+    networkVisibility: Public
+    context: /api/categorias
+  - name: UpdateCategoria
     port: 3001
-    protocol: HTTP
-  - path: /api/categorias/:id
-    method: DELETE
+    type: REST
+    networkVisibility: Public
+    context: /api/categorias/{id}
+  - name: DeleteCategoria
     port: 3001
-    protocol: HTTP
-  - path: /api/comidas
-    method: GET
+    type: REST
+    networkVisibility: Public
+    context: /api/categorias/{id}
+  - name: GetComidas
     port: 3001
-    protocol: HTTP
-  - path: /api/comidas/:id
-    method: GET
+    type: REST
+    networkVisibility: Public
+    context: /api/comidas
+  - name: GetComidaById
     port: 3001
-    protocol: HTTP
-  - path: /api/comidas/categoria/:id_categoria
-    method: GET
+    type: REST
+    networkVisibility: Public
+    context: /api/comidas/{id}
+  - name: GetComidasByCategoria
     port: 3001
-    protocol: HTTP
-  - path: /api/comidas/buscar
-    method: GET
+    type: REST
+    networkVisibility: Public
+    context: /api/comidas/categoria/{id_categoria}
+  - name: GetComidasByName
     port: 3001
-    protocol: HTTP
-  - path: /api/comidas
-    method: POST
+    type: REST
+    networkVisibility: Public
+    context: /api/comidas/buscar
+  - name: CreateComida
     port: 3001
-    protocol: HTTP
-  - path: /api/comidas/:id
-    method: PUT
+    type: REST
+    networkVisibility: Public
+    context: /api/comidas
+  - name: UpdateComida
     port: 3001
-    protocol: HTTP
-  - path: /api/comidas/:id
-    method: DELETE
+    type: REST
+    networkVisibility: Public
+    context: /api/comidas/{id}
+  - name: DeleteComida
     port: 3001
-    protocol: HTTP
+    type: REST
+    networkVisibility: Public
+    context: /api/comidas/{id}
