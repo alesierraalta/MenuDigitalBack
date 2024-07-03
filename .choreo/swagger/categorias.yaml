@@ -1,0 +1,82 @@
+openapi: 3.0.0
+info:
+  title: Categorias API
+  version: 1.0.0
+paths:
+  /api/categorias:
+    get:
+      summary: Obtener todas las categorías
+      responses:
+        '200':
+          description: Lista de categorías
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+    post:
+      summary: Crear una nueva categoría
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+      responses:
+        '201':
+          description: Categoría creada
+  /api/categorias/{id}:
+    get:
+      summary: Obtener una categoría por ID
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: ID de la categoría
+      responses:
+        '200':
+          description: Categoría encontrada
+    put:
+      summary: Actualizar una categoría
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: ID de la categoría
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+      responses:
+        '200':
+          description: Categoría actualizada
+    delete:
+      summary: Eliminar una categoría
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: ID de la categoría
+      responses:
+        '204':
+          description: Categoría eliminada

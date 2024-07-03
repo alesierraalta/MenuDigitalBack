@@ -1,0 +1,140 @@
+openapi: 3.0.0
+info:
+  title: Comidas API
+  version: 1.0.0
+paths:
+  /api/comidas:
+    get:
+      summary: Obtener todas las comidas
+      responses:
+        '200':
+          description: Lista de comidas
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+                    categoriaId:
+                      type: integer
+    post:
+      summary: Crear una nueva comida
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                categoriaId:
+                  type: integer
+      responses:
+        '201':
+          description: Comida creada
+  /api/comidas/{id}:
+    get:
+      summary: Obtener una comida por ID
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: ID de la comida
+      responses:
+        '200':
+          description: Comida encontrada
+    put:
+      summary: Actualizar una comida
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: ID de la comida
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                categoriaId:
+                  type: integer
+      responses:
+        '200':
+          description: Comida actualizada
+    delete:
+      summary: Eliminar una comida
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: ID de la comida
+      responses:
+        '204':
+          description: Comida eliminada
+  /api/comidas/categoria/{id_categoria}:
+    get:
+      summary: Obtener comidas por categoría
+      parameters:
+        - in: path
+          name: id_categoria
+          schema:
+            type: integer
+          required: true
+          description: ID de la categoría
+      responses:
+        '200':
+          description: Lista de comidas por categoría
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+                    categoriaId:
+                      type: integer
+  /api/comidas/buscar:
+    get:
+      summary: Buscar comidas por nombre
+      parameters:
+        - in: query
+          name: name
+          schema:
+            type: string
+          required: true
+          description: Nombre de la comida
+      responses:
+        '200':
+          description: Lista de comidas
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+                    categoriaId:
+                      type: integer
