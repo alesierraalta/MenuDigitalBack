@@ -4,7 +4,47 @@ endpoints:
     method: GET
     port: 3001
     protocol: HTTP
-  - path: /api/comidas/categoria/{id_categoria}
+  - path: /api/categorias/:id
     method: GET
+    port: 3001
+    protocol: HTTP
+  - path: /api/categorias
+    method: POST
+    port: 3001
+    protocol: HTTP
+  - path: /api/categorias/:id
+    method: PUT
+    port: 3001
+    protocol: HTTP
+  - path: /api/categorias/:id
+    method: DELETE
+    port: 3001
+    protocol: HTTP
+  - path: /api/comidas
+    method: GET
+    port: 3001
+    protocol: HTTP
+  - path: /api/comidas/:id
+    method: GET
+    port: 3001
+    protocol: HTTP
+  - path: /api/comidas/categoria/:id_categoria
+    method: GET
+    port: 3001
+    protocol: HTTP
+  - path: /api/comidas/buscar
+    method: GET
+    port: 3001
+    protocol: HTTP
+  - path: /api/comidas
+    method: POST
+    port: 3001
+    protocol: HTTP
+  - path: /api/comidas/:id
+    method: PUT
+    port: 3001
+    protocol: HTTP
+  - path: /api/comidas/:id
+    method: DELETE
     port: 3001
     protocol: HTTP
