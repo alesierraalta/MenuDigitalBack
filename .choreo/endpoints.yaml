@@ -1,62 +1,62 @@
 version: 0.1
 endpoints:
-  - name: GetCategorias
+  - name: CategoriasService
     port: 3001
     type: REST
-    networkVisibility: Public
+    networkVisibility: Project
     context: /api/categorias
-  - name: GetCategoriaById
+  - name: CategoriaDetailService
     port: 3001
     type: REST
-    networkVisibility: Public
-    context: /api/categorias/{id}
-  - name: CreateCategoria
+    networkVisibility: Project
+    context: /api/categorias/:id
+  - name: CreateCategoriaService
     port: 3001
     type: REST
-    networkVisibility: Public
+    networkVisibility: Project
     context: /api/categorias
-  - name: UpdateCategoria
+  - name: UpdateCategoriaService
     port: 3001
     type: REST
-    networkVisibility: Public
-    context: /api/categorias/{id}
-  - name: DeleteCategoria
+    networkVisibility: Project
+    context: /api/categorias/:id
+  - name: DeleteCategoriaService
     port: 3001
     type: REST
-    networkVisibility: Public
-    context: /api/categorias/{id}
-  - name: GetComidas
+    networkVisibility: Project
+    context: /api/categorias/:id
+  - name: ComidasService
     port: 3001
     type: REST
-    networkVisibility: Public
+    networkVisibility: Project
     context: /api/comidas
-  - name: GetComidaById
+  - name: ComidaDetailService
     port: 3001
     type: REST
-    networkVisibility: Public
-    context: /api/comidas/{id}
-  - name: GetComidasByCategoria
+    networkVisibility: Project
+    context: /api/comidas/:id
+  - name: ComidasByCategoriaService
     port: 3001
     type: REST
-    networkVisibility: Public
-    context: /api/comidas/categoria/{id_categoria}
-  - name: GetComidasByName
+    networkVisibility: Project
+    context: /api/comidas/categoria/:id_categoria
+  - name: ComidasSearchService
     port: 3001
     type: REST
-    networkVisibility: Public
+    networkVisibility: Project
     context: /api/comidas/buscar
-  - name: CreateComida
+  - name: CreateComidaService
     port: 3001
     type: REST
-    networkVisibility: Public
+    networkVisibility: Project
     context: /api/comidas
-  - name: UpdateComida
+  - name: UpdateComidaService
     port: 3001
     type: REST
-    networkVisibility: Public
-    context: /api/comidas/{id}
-  - name: DeleteComida
+    networkVisibility: Project
+    context: /api/comidas/:id
+  - name: DeleteComidaService
     port: 3001
     type: REST
-    networkVisibility: Public
-    context: /api/comidas/{id}
+    networkVisibility: Project
+    context: /api/comidas/:id

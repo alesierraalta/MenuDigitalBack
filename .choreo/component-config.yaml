@@ -1,13 +1,76 @@
-name: BackNest
-runtime: nodejs18
-source:
-  git:
-    url: https://github.com/alesierraalta/MenuDigitalBack
-    branch: main
-run:
-  cmd: node dist/main.js
-build:
-  cmd: npm install && npm run build
-env:
-  - name: NODE_ENV
-    value: production
+apiVersion: core.choreo.dev/v1beta1
+kind: ComponentConfig
+spec:
+  runtime: nodejs18
+  source:
+    git:
+      url: https://github.com/alesierraalta/MenuDigitalBack
+      branch: main
+  run:
+    cmd: node dist/main.js
+  build:
+    cmd: npm install && npm run build
+  env:
+    - name: NODE_ENV
+      value: production
+  inbound:
+    - name: CategoriasService
+      port: 3001
+      type: REST
+      networkVisibility: Public
+      context: /api/categorias
+    - name: CategoriaDetailService
+      port: 3001
+      type: REST
+      networkVisibility: Public
+      context: /api/categorias/:id
+    - name: CreateCategoriaService
+      port: 3001
+      type: REST
+      networkVisibility: Public
+      context: /api/categorias
+    - name: UpdateCategoriaService
+      port: 3001
+      type: REST
+      networkVisibility: Public
+      context: /api/categorias/:id
+    - name: DeleteCategoriaService
+      port: 3001
+      type: REST
+      networkVisibility: Public
+      context: /api/categorias/:id
+    - name: ComidasService
+      port: 3001
+      type: REST
+      networkVisibility: Public
+      context: /api/comidas
+    - name: ComidaDetailService
+      port: 3001
+      type: REST
+      networkVisibility: Public
+      context: /api/comidas/:id
+    - name: ComidasByCategoriaService
+      port: 3001
+      type: REST
+      networkVisibility: Public
+      context: /api/comidas/categoria/:id_categoria
+    - name: ComidasSearchService
+      port: 3001
+      type: REST
+      networkVisibility: Public
+      context: /api/comidas/buscar
+    - name: CreateComidaService
+      port: 3001
+      type: REST
+      networkVisibility: Public
+      context: /api/comidas
+    - name: UpdateComidaService
+      port: 3001
+      type: REST
+      networkVisibility: Public
+      context: /api/comidas/:id
+    - name: DeleteComidaService
+      port: 3001
+      type: REST
+      networkVisibility: Public
+      context: /api/comidas/:id
