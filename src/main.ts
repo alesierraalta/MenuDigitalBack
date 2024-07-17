@@ -16,8 +16,8 @@ async function bootstrap() {
   
   // Enable CORS
   app.enableCors({
-    //origin:'https://18b27a0c-5539-423c-aa44-d127de9dfea4.e1-us-east-azure.choreoapps.dev',
-    origin: 'http://localhost:5173', // Frontend URL
+    origin:'https://18b27a0c-5539-423c-aa44-d127de9dfea4.e1-us-east-azure.choreoapps.dev',
+    //origin: 'http://localhost:5173', // Frontend URL
     credentials: true,
   });
 
