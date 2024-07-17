@@ -42,7 +42,7 @@ endpoints:
     port: 3001
     type: REST
     networkVisibility: Public
-    context: /api/comidas/categoria/:id_categoria
+    context: /api/comidas/categoria/
   - name: ComidasSearchService
     port: 3001
     type: REST
