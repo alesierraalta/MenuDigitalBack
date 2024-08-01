@@ -1,79 +1,9 @@
 version: 1
 endpoints:
-  - name: CategoriasService
+  - name: "REST API"
     port: 3001
     type: REST
     networkVisibility: Public
-    context: /api/categorias
+    context: /
 
-  - name: CategoriaDetailService
-    port: 3001
-    type: REST
-    networkVisibility: Public
-    context: /api/categorias/:id
 
-  - name: CreateCategoriaService
-    port: 3001
-    type: REST
-    networkVisibility: Public
-    context: /api/categorias
-    method: POST
-
-  - name: UpdateCategoriaService
-    port: 3001
-    type: REST
-    networkVisibility: Public
-    context: /api/categorias/:id
-    method: PUT
-
-  - name: DeleteCategoriaService
-    port: 3001
-    type: REST
-    networkVisibility: Public
-    context: /api/categorias/:id
-    method: DELETE
-
-  - name: ComidasService
-    port: 3001
-    type: REST
-    networkVisibility: Public
-    context: /api/comidas
-
-  - name: ComidaDetailService
-    port: 3001
-    type: REST
-    networkVisibility: Public
-    context: /api/comidas/:id
-
-  - name: ComidasByCategoriaService
-    port: 3001
-    type: REST
-    networkVisibility: Public
-    context: /api/comidas/categoria/:id_categoria
-
-  - name: ComidasSearchService
-    port: 3001
-    type: REST
-    networkVisibility: Public
-    context: /api/comidas/buscar
-
-  - name: CreateComidaService
-    port: 3001
-    type: REST
-    networkVisibility: Public
-    context: /api/comidas
-    method: POST
-
-  - name: UpdateComidaService
-    port: 3001
-    type: REST
-    networkVisibility: Public
-    context: /api/comidas/:id
-    method: PUT
-
-  - name: DeleteComidaService
-    port: 3001
-    type: REST
-    networkVisibility: Public
-    context: /api/comidas/:id
-    method: DELETE
