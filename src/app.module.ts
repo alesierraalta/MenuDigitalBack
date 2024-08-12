@@ -3,6 +3,7 @@ import { Module } from '@nestjs/common';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { CategoriasModule } from './categorias/categorias.module';
 import { ComidasModule } from './comidas/comidas.module';
+
 import * as dotenv from 'dotenv';
 
 dotenv.config(); // Load environment variables
