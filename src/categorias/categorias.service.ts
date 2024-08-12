@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException, BadRequestException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { Categoria } from './categoria.entity';
 import { CreateCategoriaDto } from './dto/create-categoria.dto';
@@ -35,18 +35,22 @@ export class CategoriasService {
     try {
       return await this.categoriaModel.create(createCategoriaDto as any);
     } catch (error) {
-      throw new Error(`Error creating category: ${(error as Error).message}`);
+      throw new BadRequestException(`Error creating category: ${(error as Error).message}`);
     }
   }
 
   async update(id: number, updateCategoriaDto: UpdateCategoriaDto): Promise<[number, Categoria[]]> {
     try {
-      return await this.categoriaModel.update(updateCategoriaDto, {
+      const [affectedCount, updatedCategoria] = await this.categoriaModel.update(updateCategoriaDto, {
         where: { id_categoria: id },
         returning: true,
       });
+      if (affectedCount === 0) {
+        throw new NotFoundException('Categoria not found');
+      }
+      return [affectedCount, updatedCategoria];
     } catch (error) {
-      throw new Error(`Error updating category: ${(error as Error).message}`);
+      throw new BadRequestException(`Error updating category: ${(error as Error).message}`);
     }
   }
 
