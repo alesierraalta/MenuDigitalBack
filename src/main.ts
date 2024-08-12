@@ -19,6 +19,7 @@ async function bootstrap() {
     origin:'https://18b27a0c-5539-423c-aa44-d127de9dfea4.e1-us-east-azure.choreoapps.dev',
     //origin: 'http://localhost:5173', // Frontend URL
     credentials: true,
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   });
 
   await app.listen(3001);
